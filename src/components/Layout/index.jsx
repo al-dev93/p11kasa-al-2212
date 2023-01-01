@@ -1,26 +1,84 @@
-import { Link, Outlet } from 'react-router-dom';
-import kasaLogo from '../../assets/LOGO.svg';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import styled from 'styled-components';
+import kasaHeaderLogo from '../../assets/LOGO.svg';
+import kasaFooterLogo from '../../assets/LOGO_WHITE.svg';
+import colors from '../../utils/style/colors';
+
+const LayoutWrapper = styled.div`
+  margin: 0 auto;
+  padding-top: 40px;
+`;
+
+const Header = styled.header`
+  padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+`;
+const Logo = styled.img`
+  width: ${(props) => (props.large ? 210.32 : 122)}px;
+  height: 100%;
+`;
+const Menu = styled.ul`
+  width: 309px;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 57px;
+  list-style: none;
+`;
+
+const ItemMenu = styled(NavLink)`
+  text-decoration: none;
+  color: ${colors.primary};
+  &.active {
+    text-decoration: underline;
+  }
+`;
+
+const Main = styled.main`
+  padding: 0 100px;
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 66px 0 29px;
+  background-color: ${colors.darkBackground};
+  color: ${colors.secondary};
+`;
+
+const Span = styled.span`
+  margin-top: 28.56px;
+`;
 
 const Layout = () => (
-  <div>
-    <header>
-      <img src={kasaLogo} alt='logo de kasa' />
+  <LayoutWrapper>
+    <Header>
+      <Link to='/'>
+        <Logo large src={kasaHeaderLogo} alt='logo de kasa' />
+      </Link>
       <nav>
-        <ul>
+        <Menu>
           <li>
-            <Link to={'/'}>Accueil</Link>
+            <ItemMenu to='/'>Accueil</ItemMenu>
           </li>
           <li>
-            <Link to={'about'}>A Propos</Link>
+            <ItemMenu to='about'>A Propos</ItemMenu>
           </li>
-        </ul>
+        </Menu>
       </nav>
-    </header>
-    <main>
+    </Header>
+    <Main>
       <Outlet />
-    </main>
-    <footer></footer>
-  </div>
+    </Main>
+    <Footer>
+      <Link to='/'>
+        <Logo src={kasaFooterLogo} alt='logo de kasa' />
+      </Link>
+      <Span>© 2020 Kasa. All rights reserved</Span>
+    </Footer>
+  </LayoutWrapper>
 );
 
 export default Layout;
