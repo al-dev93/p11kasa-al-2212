@@ -4,7 +4,7 @@ import kasaHeaderLogo from '../../assets/LOGO.svg';
 import kasaFooterLogo from '../../assets/LOGO_WHITE.svg';
 import colors from '../../utils/style/colors';
 
-const LayoutWrapper = styled.div`
+const Wrapper = styled.div`
   margin: 0 auto;
   padding-top: 40px;
 `;
@@ -37,6 +37,7 @@ const ItemMenu = styled(NavLink)`
 
 const Main = styled.main`
   box-sizing: border-box;
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 100px;
@@ -56,7 +57,7 @@ const Span = styled.span`
 `;
 
 const Layout = () => (
-  <LayoutWrapper>
+  <Wrapper>
     <Header>
       <Link to='/'>
         <Logo large src={kasaHeaderLogo} alt='logo de kasa' />
@@ -81,7 +82,7 @@ const Layout = () => (
       </Link>
       <Span>© 2020 Kasa. All rights reserved</Span>
     </Footer>
-  </LayoutWrapper>
+  </Wrapper>
 );
 
 export default Layout;

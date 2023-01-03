@@ -41,16 +41,14 @@ const ContentBanner = styled.div`
   line-height: var(--height);
 `;
 
-const Banner = (props) => {
-  return (
-    // eslint-disable-next-line react/prop-types
-    <BackgroundBanner $onAbout={props.onAbout}>
-      <ContentBanner>
-        {/* eslint-disable-next-line react/prop-types */}
-        {props.children}
-      </ContentBanner>
-    </BackgroundBanner>
-  );
-};
+const Banner = (props) => (
+  // eslint-disable-next-line react/prop-types
+  <BackgroundBanner $onAbout={props.onAbout}>
+    <ContentBanner>
+      {/* eslint-disable-next-line react/prop-types */}
+      {props.children}
+    </ContentBanner>
+  </BackgroundBanner>
+);
 
 export default Banner;

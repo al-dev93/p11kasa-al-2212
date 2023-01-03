@@ -1,10 +1,14 @@
+import styled from 'styled-components';
 import Banner from '../../components/Banner';
 
+const Wrapper = styled.div`
+  margin-top: 44px;
+`;
 const About = () => (
-  <div>
+  <Wrapper>
     <Banner onAbout />
     <div>A propos de</div>
-  </div>
+  </Wrapper>
 );
 
 export default About;
