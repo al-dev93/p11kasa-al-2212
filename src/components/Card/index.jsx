@@ -15,6 +15,7 @@ const WrapperLink = styled(Link)`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  text-decoration: none;
 `;
 const WrapperContent = styled.div`
   width: 100%;
@@ -43,17 +44,15 @@ const CardTitle = styled.h2`
   color: ${colors.secondary};
 `;
 
-const Card = () => (
+// eslint-disable-next-line react/prop-types
+const Card = ({ flatId, image, title }) => (
   <Wrapper>
-    <WrapperLink>
+    <WrapperLink to={`/flat/${flatId}`}>
       <WrapperContent>
         <div>
-          <CardImage
-            src='https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg'
-            alt=''
-          />
+          <CardImage src={image} alt='' />
         </div>
-        <CardTitle>Appartement cosy</CardTitle>
+        <CardTitle>{title}</CardTitle>
       </WrapperContent>
     </WrapperLink>
   </Wrapper>

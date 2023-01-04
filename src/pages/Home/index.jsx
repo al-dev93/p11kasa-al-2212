@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Banner from '../../components/Banner';
 import Card from '../../components/Card';
 import colors from '../../utils/style/colors';
+import data from '../../data/logements.json';
 
 const Wrapper = styled.div`
   margin-top: 63px;
@@ -30,7 +31,9 @@ const Home = () => (
   <Wrapper>
     <Banner>{<Slogan>Chez vous, partout et ailleurs</Slogan>}</Banner>
     <Gallery>
-      <Card />
+      {data.map((flat) => (
+        <Card key={flat.id} flatId={flat.id} image={flat.cover} title={flat.title} />
+      ))}
     </Gallery>
   </Wrapper>
 );
