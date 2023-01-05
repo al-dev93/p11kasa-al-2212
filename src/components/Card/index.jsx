@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
+import typo from '../../utils/style/typo';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -40,7 +41,7 @@ const CardTitle = styled.h2`
   padding: 0 20px 20px;
   font-size: 18px;
   font-weight: 500;
-  line-height: var(--height);
+  line-height: ${typo.lineHeight}%;
   color: ${colors.secondary};
 `;
 

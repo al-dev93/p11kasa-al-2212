@@ -3,6 +3,7 @@ import Banner from '../../components/Banner';
 import Card from '../../components/Card';
 import colors from '../../utils/style/colors';
 import data from '../../data/logements.json';
+import typo from '../../utils/style/typo';
 
 const Wrapper = styled.div`
   margin-top: 63px;
@@ -24,7 +25,7 @@ const Slogan = styled.h1`
   color: ${colors.secondary};
   font-weight: 500;
   font-size: 48px;
-  line-height: var(--height);
+  line-height: ${typo.lineHeight}%;
 `;
 
 const Home = () => (

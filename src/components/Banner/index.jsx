@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 import HomeBannerImg from '../../assets/images/IMG_HOME_PAGE.png';
 import AboutBannerImg from '../../assets/images/IMG_ABOUT_PAGE.png';
+import typo from '../../utils/style/typo';
 
 const BackgroundBanner = styled.section`
   box-sizing: border-box;
@@ -9,7 +10,7 @@ const BackgroundBanner = styled.section`
   width: 100%;
   padding-top: 18%;
   border-radius: 25px;
-  background-image: url(${(props) => (props.$onAbout ? AboutBannerImg : HomeBannerImg)});
+  background-image: url(${(props) => (props.onAbout ? AboutBannerImg : HomeBannerImg)});
   background-size: cover;
   line-height: 0px;
   &::before {
@@ -38,12 +39,12 @@ const ContentBanner = styled.div`
   color: ${colors.secondary};
   font-weight: 500;
   font-size: 48px;
-  line-height: var(--height);
+  line-height: ${typo.lineHeight}%;
 `;
 
 const Banner = (props) => (
   // eslint-disable-next-line react/prop-types
-  <BackgroundBanner $onAbout={props.onAbout}>
+  <BackgroundBanner onAbout={props.onAbout}>
     <ContentBanner>
       {/* eslint-disable-next-line react/prop-types */}
       {props.children}
