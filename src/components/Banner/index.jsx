@@ -4,7 +4,9 @@ import HomeBannerImg from '../../assets/images/IMG_HOME_PAGE.png';
 import AboutBannerImg from '../../assets/images/IMG_ABOUT_PAGE.png';
 import typo from '../../utils/style/typo';
 
-const BackgroundBanner = styled.section`
+const BackgroundBanner = styled.section.attrs((props) => ({
+  onAbout: props.onAbout,
+}))`
   box-sizing: border-box;
   position: relative;
   width: 100%;
