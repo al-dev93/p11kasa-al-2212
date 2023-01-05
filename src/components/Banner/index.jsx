@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 import HomeBannerImg from '../../assets/images/IMG_HOME_PAGE.png';
 import AboutBannerImg from '../../assets/images/IMG_ABOUT_PAGE.png';
-import typo from '../../utils/style/typo';
+
+/************************************************/
+//*  Composant Banner                           */
+/************************************************/
+
+//** Style du composant */
 
 const BackgroundBanner = styled.section.attrs((props) => ({
   onAbout: props.onAbout,
@@ -12,6 +17,7 @@ const BackgroundBanner = styled.section.attrs((props) => ({
   width: 100%;
   padding-top: 18%;
   border-radius: 25px;
+  // Image de fond différente sur la page About
   background-image: url(${(props) => (props.onAbout ? AboutBannerImg : HomeBannerImg)});
   background-size: cover;
   line-height: 0px;
@@ -28,7 +34,7 @@ const BackgroundBanner = styled.section.attrs((props) => ({
     opacity: 0.3;
   }
 `;
-
+// Conteneur pour le slogan de la page Home
 const ContentBanner = styled.div`
   position: absolute;
   top: 0;
@@ -41,10 +47,11 @@ const ContentBanner = styled.div`
   color: ${colors.secondary};
   font-weight: 500;
   font-size: 48px;
-  line-height: ${typo.lineHeight}%;
 `;
 
-const Banner = (props) => (
+//** Composant */
+
+const Banner = ({ ...props }) => (
   // eslint-disable-next-line react/prop-types
   <BackgroundBanner onAbout={props.onAbout}>
     <ContentBanner>

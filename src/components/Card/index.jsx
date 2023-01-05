@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
-import typo from '../../utils/style/typo';
 
+/************************************************/
+//*  Composant Card                             */
+/************************************************/
+
+//** Style du composant */
+
+// conteneur principal
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -11,6 +17,7 @@ const Wrapper = styled.div`
     ${colors.primary};
   border-radius: 10px;
 `;
+// lien vers la page appartement
 const WrapperLink = styled(Link)`
   display: block;
   box-sizing: border-box;
@@ -18,6 +25,7 @@ const WrapperLink = styled(Link)`
   height: 100%;
   text-decoration: none;
 `;
+// conteneur du contenu
 const WrapperContent = styled.div`
   width: 100%;
   height: 100%;
@@ -26,24 +34,23 @@ const WrapperContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
-
+// image de la carte
 const CardImage = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 10px 10px 0 0;
   object-fit: cover;
 `;
-
+// titre de la carte
 const CardTitle = styled.h2`
   box-sizing: border-box;
-  margin: 0;
   width: 100%;
   padding: 0 20px 20px;
   font-size: 18px;
-  font-weight: 500;
-  line-height: ${typo.lineHeight}%;
   color: ${colors.secondary};
 `;
+
+//** Composant */
 
 // eslint-disable-next-line react/prop-types
 const Card = ({ flatId, image, title }) => (

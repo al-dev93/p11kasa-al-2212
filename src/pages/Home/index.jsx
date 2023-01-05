@@ -3,12 +3,18 @@ import Banner from '../../components/Banner';
 import Card from '../../components/Card';
 import colors from '../../utils/style/colors';
 import data from '../../data/logements.json';
-import typo from '../../utils/style/typo';
 
+/************************************************/
+//*  Page Home                                  */
+/************************************************/
+
+//** Style de la page */
+
+// conteneur principal
 const Wrapper = styled.div`
   margin-top: 63px;
 `;
-
+// conteneur des cartes appartements
 const Gallery = styled.section`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -20,13 +26,14 @@ const Gallery = styled.section`
   margin: 43px 0;
   border-radius: 25px;
 `;
-
+// Slogan dans la bannière
 const Slogan = styled.h1`
   color: ${colors.secondary};
   font-weight: 500;
   font-size: 48px;
-  line-height: ${typo.lineHeight}%;
 `;
+
+//** Composant page */
 
 const Home = () => (
   <Wrapper>

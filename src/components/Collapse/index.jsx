@@ -5,11 +5,18 @@ import ArrowUp from '../../assets/ARROW_UP.svg';
 import ArrowDown from '../../assets/ARROW_DOWN.svg';
 import typo from '../../utils/style/typo';
 
+/************************************************/
+//*  Composant Collapse                         */
+/************************************************/
+
+//** Style du composant */
+
+// conteneur principal
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
+// bouton du collapse pour la page About
 const AboutButton = styled.button`
   position: relative;
   display: flex;
@@ -18,13 +25,7 @@ const AboutButton = styled.button`
   flex: 1 47px;
   padding: 0 0 0 1.77%;
   font-size: 24px;
-  font-weight: 500;
-  line-height: ${typo.lineHeight}%;
-  background-color: ${colors.primary};
-  color: ${colors.secondary};
-  border: none;
   border-radius: 5px;
-  z-index: 2;
   &::after {
     position: absolute;
     content: url(${({ isOpen }) => (isOpen ? ArrowDown : ArrowUp)});
@@ -34,7 +35,7 @@ const AboutButton = styled.button`
     top: calc(calc(100% - 61.5%) / 2);
   }
 `;
-
+// bouton du collaps pour la page Flat
 const FlatButton = styled(AboutButton)`
   flex: 1 52px;
   padding-left: 3.44%;
@@ -46,37 +47,33 @@ const FlatButton = styled(AboutButton)`
     right: 1.55%;
   }
 `;
-
+// conteneur du collapse pour la page About
 const AboutDropDown = styled.div`
   position: relative;
   top: -9px;
   padding: 36px 27px 19px 18px;
   background-color: ${colors.lightBackground};
-  color: ${colors.primary};
+  //  color: ${colors.primary};
   border-radius: 0 0 5px 5px;
   z-index: 1;
 `;
-
+// conteneur du collapse pour la page Flat
 const FlatDropDown = styled(AboutDropDown)`
   padding: 40px 12px 27px 20px;
   border-radius: 0 0 10px 10px;
 `;
-
+// texte contenu dans le collapse de la page About
 const DropDownText = styled.p`
   margin: 0;
   font-size: 24px;
-  font-weight: 400;
-  line-height: ${typo.lineHeight}%;
-  color: ${colors.primary};
 `;
-
+// liste contenue dans le collapse de la page Flat
 const DropDownList = styled.ul`
   list-style: none;
   font-size: 18px;
-  font-weight: 400;
-  line-height: ${typo.lineHeight}%;
-  color: ${colors.primary};
 `;
+
+//** Composant collapse pour les pages Flat et About */
 
 // eslint-disable-next-line react/prop-types
 const Collapse = ({ onPage, title, content }) => {

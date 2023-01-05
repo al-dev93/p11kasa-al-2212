@@ -5,6 +5,10 @@ import Flat from '../../pages/Flat';
 import Home from '../../pages/Home';
 import Layout from '../Layout';
 
+/************************************************/
+//*  Composant Router                           */
+/************************************************/
+
 const Router = createBrowserRouter([
   {
     path: '/',

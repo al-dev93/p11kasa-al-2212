@@ -2,13 +2,19 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import kasaHeaderLogo from '../../assets/LOGO.svg';
 import kasaFooterLogo from '../../assets/LOGO_WHITE.svg';
-import colors from '../../utils/style/colors';
 
+/************************************************/
+//*  Composant Layout                           */
+/************************************************/
+
+//** Style du composant */
+
+// Conteneur principal
 const Wrapper = styled.div`
   margin: 0 auto;
   padding-top: 40px;
 `;
-
+// Style du header
 const Header = styled.header`
   padding: 0 100px;
   display: flex;
@@ -18,23 +24,19 @@ const Logo = styled.img`
   width: ${(props) => (props.large ? 210.32 : 122)}px;
   height: 100%;
 `;
+// Style du menu
 const Menu = styled.ul`
   width: 309px;
-  padding: 0;
   display: flex;
   justify-content: flex-end;
   gap: 57px;
-  list-style: none;
 `;
-
 const ItemMenu = styled(NavLink)`
   text-decoration: none;
-  color: ${colors.primary};
   &.active {
     text-decoration: underline;
   }
 `;
-
 const Main = styled.main`
   box-sizing: border-box;
   width: 100%;
@@ -42,19 +44,18 @@ const Main = styled.main`
   margin: 0 auto;
   padding: 0 100px;
 `;
-
+// Style du footer
 const Footer = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 66px 0 29px;
-  background-color: ${colors.darkBackground};
-  color: ${colors.secondary};
 `;
-
 const Span = styled.span`
   margin-top: 28.56px;
 `;
+
+//** Composant Layout, commun à toutes les pages */
 
 const Layout = () => (
   <Wrapper>
