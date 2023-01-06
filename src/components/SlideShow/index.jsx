@@ -12,7 +12,7 @@ import colors from '../../utils/style/colors';
 
 //** Style du composant */
 
-// conteneur principal
+// flèches de navigation
 const NavArrow = styled.img.attrs((props) => ({
   direction: props.direction,
 }))`
@@ -23,7 +23,7 @@ const NavArrow = styled.img.attrs((props) => ({
   cursor: pointer;
   z-index: 100;
 `;
-
+// compteur d'images
 const Counter = styled.span`
   position: absolute;
   display: flex;
@@ -39,7 +39,7 @@ const Counter = styled.span`
   background-color: ${colors.greyBackground};
   z-index: 100;
 `;
-
+// image dans le carrousel
 const FlatImage = styled.img`
   position: absolute;
   top: 0;
@@ -51,12 +51,14 @@ const FlatImage = styled.img`
   mix-blend-mode: normal;
 `;
 
+//** Composant */
 // eslint-disable-next-line react/prop-types
 const SlideShow = ({ onPage, flat = data[0].pictures }) => {
   const prev = false;
   const next = true;
   const numberOfImage = flat.length;
   const [image, setImage] = useState(0);
+  // affichage des flèches et du compteur si plus d'une image
   const slide =
     numberOfImage > 1 ? (
       <>
@@ -81,7 +83,7 @@ const SlideShow = ({ onPage, flat = data[0].pictures }) => {
   return (
     <Banner onPage={onPage}>
       {slide}
-      <FlatImage src={flat[image]} alt='' />
+      <FlatImage src={flat[image]} alt='Appartement' />
     </Banner>
   );
 };
