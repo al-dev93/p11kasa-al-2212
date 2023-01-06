@@ -10,15 +10,16 @@ import AboutBannerImg from '../../assets/images/IMG_ABOUT_PAGE.png';
 //** Style du composant */
 
 const BackgroundBanner = styled.section.attrs((props) => ({
-  onAbout: props.onAbout,
+  onPage: props.onPage,
 }))`
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  padding-top: 18%;
+  padding-top: ${(props) => (props.onPage === 'Flat' ? 33.47 : 18)}%;
   border-radius: 25px;
-  // Image de fond différente sur la page About
-  background-image: url(${(props) => (props.onAbout ? AboutBannerImg : HomeBannerImg)});
+  background-color: ${colors.lightBackground};
+  // Image de fond différente sur Home, About et SlideShow
+  background: url(${(props) => getImageBanner(props.onPage)});
   background-size: cover;
   line-height: 0px;
   &::before {
@@ -35,11 +36,13 @@ const BackgroundBanner = styled.section.attrs((props) => ({
   }
 `;
 // Conteneur pour le slogan de la page Home
-const ContentBanner = styled.div`
+const ContentBanner = styled.div.attrs((props) => ({
+  onPage: props.onPage,
+}))`
   position: absolute;
   top: 0;
   left: 0;
-  width: 79%;
+  width: ${(props) => (props.onPage === 'Home' ? 79 : 100)}%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -49,14 +52,26 @@ const ContentBanner = styled.div`
   font-size: 48px;
 `;
 
+function getImageBanner(page) {
+  switch (page) {
+    case 'Home':
+      return HomeBannerImg;
+    case 'About':
+      return AboutBannerImg;
+    default:
+      return '';
+  }
+}
+
 //** Composant */
 
-const Banner = ({ ...props }) => (
+// eslint-disable-next-line react/prop-types
+const Banner = ({ children, onPage }) => (
   // eslint-disable-next-line react/prop-types
-  <BackgroundBanner onAbout={props.onAbout}>
-    <ContentBanner>
+  <BackgroundBanner onPage={onPage}>
+    <ContentBanner onPage={onPage}>
       {/* eslint-disable-next-line react/prop-types */}
-      {props.children}
+      {children}
     </ContentBanner>
   </BackgroundBanner>
 );

@@ -35,7 +35,7 @@ const security =
 
 const About = () => (
   <Wrapper>
-    <Banner onAbout />
+    <Banner onPage={'About'} />
     <CollapseWrapper>
       <Collapse onPage={'About'} title={'Fiabilité'} content={reliability} />
       <Collapse onPage={'About'} title={'Respect'} content={respect} />

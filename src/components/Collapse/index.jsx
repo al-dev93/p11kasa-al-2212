@@ -53,7 +53,6 @@ const AboutDropDown = styled.div`
   top: -9px;
   padding: 36px 27px 19px 18px;
   background-color: ${colors.lightBackground};
-  //  color: ${colors.primary};
   border-radius: 0 0 5px 5px;
   z-index: 1;
 `;

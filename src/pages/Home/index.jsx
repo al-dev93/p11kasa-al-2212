@@ -37,7 +37,7 @@ const Slogan = styled.h1`
 
 const Home = () => (
   <Wrapper>
-    <Banner>{<Slogan>Chez vous, partout et ailleurs</Slogan>}</Banner>
+    <Banner onPage={'Home'}>{<Slogan>Chez vous, partout et ailleurs</Slogan>}</Banner>
     <Gallery>
       {data.map((flat) => (
         <Card key={flat.id} flatId={flat.id} image={flat.cover} title={flat.title} />
