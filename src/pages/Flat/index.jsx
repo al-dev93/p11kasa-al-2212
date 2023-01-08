@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import SlideShow from '../../components/SlideShow';
 import colors from '../../utils/style/colors';
 import flats from '../../data/logements.json';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import marked from '../../assets/STAR_PRIMARY.svg';
 import unmarked from '../../assets/STAR_LIGHT.svg';
 import Collapse from '../../components/Collapse';
@@ -91,6 +91,11 @@ const WrapperCollapseEquipment = styled.div`
 const Flat = () => {
   const { flatId } = useParams();
   const flat = flats.find((flat) => flat.id === flatId);
+
+  if (!flat) {
+    return <Navigate to='/error' replace={true} />;
+  }
+
   const [surname, name] = flat.host.name.split(' ');
   const scoringScale = [1, 2, 3, 4, 5];
 
