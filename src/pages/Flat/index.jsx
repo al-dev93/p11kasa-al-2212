@@ -92,9 +92,7 @@ const Flat = () => {
   const { flatId } = useParams();
   const flat = flats.find((flat) => flat.id === flatId);
 
-  if (!flat) {
-    return <Navigate to='/error' replace={true} />;
-  }
+  if (!flat) return <Navigate to='/error' replace={true} />;
 
   const [surname, name] = flat.host.name.split(' ');
   const scoringScale = [1, 2, 3, 4, 5];
