@@ -15,7 +15,7 @@ const BackgroundBanner = styled.section.attrs((props) => ({
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  padding-top: ${(props) => (props.onPage === 'Flat' ? 33.47 : 18)}%;
+  padding-top: ${(props) => (!props.onPage ? 33.47 : 18)}%;
   border-radius: 25px;
   background-color: ${colors.lightBackground};
   // Image de fond différente sur Home, About et SlideShow

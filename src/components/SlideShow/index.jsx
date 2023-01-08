@@ -3,7 +3,6 @@ import Prev from '../../assets/ARROW_BACK.svg';
 import Next from '../../assets/ARROW_FORWARD.svg';
 import styled from 'styled-components';
 import { useState } from 'react';
-import data from '../../data/logements.json';
 import colors from '../../utils/style/colors';
 
 /************************************************/
@@ -14,12 +13,12 @@ import colors from '../../utils/style/colors';
 
 // flèches de navigation
 const NavArrow = styled.img.attrs((props) => ({
-  direction: props.direction,
+  scroll: props.scroll,
 }))`
   position: absolute;
   top: calc(calc(100% - 120px) / 2);
-  left: ${(props) => !props.direction && 0};
-  right: ${(props) => props.direction && 0};
+  left: ${(props) => props.scroll === 'prev' && 0};
+  right: ${(props) => props.scroll === 'next' && 0};
   cursor: pointer;
   z-index: 100;
 `;
@@ -30,7 +29,6 @@ const Counter = styled.span`
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  line-height: var(--LineHeight);
   width: 5%;
   right: calc(calc(100% - 5%) / 2);
   top: 86.19%;
@@ -53,23 +51,22 @@ const FlatImage = styled.img`
 
 //** Composant */
 // eslint-disable-next-line react/prop-types
-const SlideShow = ({ onPage, flat = data[0].pictures }) => {
-  const prev = false;
-  const next = true;
-  const numberOfImage = flat.length;
+const SlideShow = ({ images }) => {
+  // eslint-disable-next-line react/prop-types
+  const numberOfImage = images.length;
   const [image, setImage] = useState(0);
   // affichage des flèches et du compteur si plus d'une image
   const slide =
     numberOfImage > 1 ? (
       <>
         <NavArrow
-          direction={prev}
+          scroll={'prev'}
           src={Prev}
           alt='précédente'
           onClick={() => (image === 0 ? setImage(numberOfImage - 1) : setImage(image - 1))}
         />
         <NavArrow
-          direction={next}
+          scroll={'next'}
           src={Next}
           alt='suivante'
           onClick={() => (image === numberOfImage - 1 ? setImage(0) : setImage(image + 1))}
@@ -81,9 +78,9 @@ const SlideShow = ({ onPage, flat = data[0].pictures }) => {
     ) : null;
 
   return (
-    <Banner onPage={onPage}>
+    <Banner onPage={null}>
       {slide}
-      <FlatImage src={flat[image]} alt='Appartement' />
+      <FlatImage src={images[image]} alt='Appartement' />
     </Banner>
   );
 };

@@ -35,6 +35,10 @@ const WrapperContent = styled.div`
   justify-content: space-between;
 `;
 // image de la carte
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 69.12%;
+`;
 const CardImage = styled.img`
   width: 100%;
   height: 100%;
@@ -57,9 +61,9 @@ const Card = ({ flatId, image, title }) => (
   <Wrapper>
     <WrapperLink to={`/flat/${flatId}`}>
       <WrapperContent>
-        <div>
+        <ImageWrapper>
           <CardImage src={image} alt='' />
-        </div>
+        </ImageWrapper>
         <CardTitle>{title}</CardTitle>
       </WrapperContent>
     </WrapperLink>

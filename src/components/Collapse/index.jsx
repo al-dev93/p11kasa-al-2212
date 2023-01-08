@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 import ArrowUp from '../../assets/ARROW_UP.svg';
 import ArrowDown from '../../assets/ARROW_DOWN.svg';
-import typo from '../../utils/style/typo';
 
 /************************************************/
 //*  Composant Collapse                         */
@@ -13,6 +12,7 @@ import typo from '../../utils/style/typo';
 
 // conteneur principal
 const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -40,10 +40,9 @@ const FlatButton = styled(AboutButton)`
   flex: 1 52px;
   padding-left: 3.44%;
   font-size: 18px;
-  line-height: ${typo.lineHeight}%;
   border-radius: 10px;
   &::after {
-    left: 98.45%;
+    left: 92.96%;
     right: 1.55%;
   }
 `;
@@ -87,7 +86,12 @@ const Collapse = ({ onPage, title, content }) => {
         </AboutButton>
         {isOpen ? (
           <AboutDropDown as={onFlatPage && FlatDropDown}>
-            <DropDownText as={onFlatPage && DropDownList}>{content}</DropDownText>
+            <DropDownText as={onFlatPage && DropDownList}>
+              {Array.isArray(content)
+                ? // eslint-disable-next-line react/prop-types
+                  content.map((item, index) => <li key={`${item}-${index}`}>{item}</li>)
+                : content}
+            </DropDownText>
           </AboutDropDown>
         ) : null}
       </>
