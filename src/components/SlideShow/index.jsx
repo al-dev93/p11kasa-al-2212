@@ -78,7 +78,7 @@ const SlideShow = ({ images }) => {
     ) : null;
 
   return (
-    <Banner onPage={null}>
+    <Banner>
       {slide}
       <FlatImage src={images[image]} alt='Appartement' />
     </Banner>
