@@ -1,7 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import colors from '../../utils/style/colors';
-import HomeBannerImg from '../../assets/images/IMG_HOME_PAGE.png';
-import AboutBannerImg from '../../assets/images/IMG_ABOUT_PAGE.png';
 
 /************************************************/
 //*  Composant Banner                           */
@@ -11,29 +9,19 @@ import AboutBannerImg from '../../assets/images/IMG_ABOUT_PAGE.png';
 
 const BackgroundBanner = styled.section.attrs((props) => ({
   image: props.image,
+  type: props.type,
 }))`
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  padding-top: ${(props) => (props.image != '/' && props.image != '/about' ? 33.47 : 18)}%;
+  padding-top: ${(props) => (props.type ? 33.47 : 18)}%;
   border-radius: 25px;
   line-height: 0px;
-  background: ${colors.lightBackground};
-  // Image de fond différente sur Home, About et SlideShow
-  ${(props) => {
-    switch (true) {
-      case props.image === '/':
-        return css`
-          background: url(${HomeBannerImg});
-          background-size: cover;
-        `;
-      case props.image === '/about':
-        return css`
-          background: url(${AboutBannerImg});
-          background-size: cover;
-        `;
-    }
-  }}
+  // luminosité de l'image de fond
+  background: ${colors.lightBackground} url(${(props) => props.image});
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: ${(props) => (props.type ? 'normal' : 'darken')};
   &::before {
     content: '';
     position: absolute;
@@ -43,18 +31,15 @@ const BackgroundBanner = styled.section.attrs((props) => ({
     height: 100%;
     border-radius: 25px;
     background: ${colors.darkBackground};
-    mix-blend-mode: darken;
     opacity: 0.3;
   }
 `;
-// Conteneur pour le slogan de la page Home
-const ContentBanner = styled.div.attrs((props) => ({
-  image: props.image,
-}))`
+// pour placer le slogan de Home ou les controles du slideshow
+const ContentBanner = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: ${(props) => (props.image === '/' ? 79 : 100)}%;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -67,15 +52,10 @@ const ContentBanner = styled.div.attrs((props) => ({
 //** Composant */
 
 // eslint-disable-next-line react/prop-types
-const Banner = ({ children }) => {
-  //récupère l'URL de la page en cours
-  const url = new URL(document.location);
-
-  return (
-    <BackgroundBanner image={url.pathname}>
-      <ContentBanner image={url.pathname}>{children}</ContentBanner>
-    </BackgroundBanner>
-  );
-};
+const Banner = ({ children, image, slideshow }) => (
+  <BackgroundBanner image={image} type={slideshow}>
+    <ContentBanner>{children}</ContentBanner>
+  </BackgroundBanner>
+);
 
 export default Banner;

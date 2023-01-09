@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Banner from '../../components/Banner';
 import Collapse from '../../components/Collapse';
+import AboutBannerImg from '../../assets/images/IMG_ABOUT_PAGE.png';
 
 /************************************************/
 //*  Page About                                 */
@@ -35,7 +36,7 @@ const security =
 
 const About = () => (
   <Wrapper>
-    <Banner />
+    <Banner image={`${AboutBannerImg}`} />
     <CollapseWrapper>
       <Collapse onPage={'About'} title={'Fiabilité'} content={reliability} />
       <Collapse onPage={'About'} title={'Respect'} content={respect} />

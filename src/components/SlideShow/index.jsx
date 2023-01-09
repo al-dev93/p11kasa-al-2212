@@ -3,7 +3,6 @@ import Prev from '../../assets/ARROW_BACK.svg';
 import Next from '../../assets/ARROW_FORWARD.svg';
 import styled from 'styled-components';
 import { useState } from 'react';
-import colors from '../../utils/style/colors';
 
 /************************************************/
 //*  Composant SlideShow                        */
@@ -34,19 +33,7 @@ const Counter = styled.span`
   top: 86.19%;
   bottom: 6.01%;
   border-radius: 5px;
-  background-color: ${colors.greyBackground};
-  z-index: 100;
-`;
-// image dans le carrousel
-const FlatImage = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 25px;
-  mix-blend-mode: normal;
+  z-index: 10;
 `;
 
 //** Composant */
@@ -78,9 +65,8 @@ const SlideShow = ({ images }) => {
     ) : null;
 
   return (
-    <Banner>
+    <Banner image={images[image]} slideshow>
       {slide}
-      <FlatImage src={images[image]} alt='Appartement' />
     </Banner>
   );
 };

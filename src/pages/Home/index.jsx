@@ -3,6 +3,7 @@ import Banner from '../../components/Banner';
 import Card from '../../components/Card';
 import colors from '../../utils/style/colors';
 import data from '../../data/logements.json';
+import HomeBannerImg from '../../assets/images/IMG_HOME_PAGE.png';
 
 /************************************************/
 //*  Page Home                                  */
@@ -13,6 +14,13 @@ import data from '../../data/logements.json';
 // conteneur principal
 const Wrapper = styled.div`
   margin-top: 63px;
+`;
+// Slogan intégré dans la bannière
+const Slogan = styled.h1`
+  width: 79%;
+  color: ${colors.secondary};
+  font-weight: 500;
+  font-size: 48px;
 `;
 // conteneur des cartes appartements
 const Gallery = styled.section`
@@ -26,18 +34,14 @@ const Gallery = styled.section`
   margin: 43px 0;
   border-radius: 25px;
 `;
-// Slogan dans la bannière
-const Slogan = styled.h1`
-  color: ${colors.secondary};
-  font-weight: 500;
-  font-size: 48px;
-`;
 
 //** Composant page */
 
 const Home = () => (
   <Wrapper>
-    <Banner>{<Slogan>Chez vous, partout et ailleurs</Slogan>}</Banner>
+    <Banner image={`${HomeBannerImg}`}>
+      <Slogan>Chez vous, partout et ailleurs</Slogan>
+    </Banner>
     <Gallery>
       {data.map((flat) => (
         <Card key={flat.id} flatId={flat.id} image={flat.cover} title={flat.title} />
