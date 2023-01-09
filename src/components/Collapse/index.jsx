@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 import ArrowUp from '../../assets/ARROW_UP.svg';
 import ArrowDown from '../../assets/ARROW_DOWN.svg';
+import PropTypes from 'prop-types';
 
 /************************************************/
 //*  Composant Collapse                         */
@@ -67,7 +68,6 @@ const HalfDropDown = styled(WideDropDown)`
 
 //** Composant collapse pour les pages Flat et About */
 
-// eslint-disable-next-line react/prop-types
 const Collapse = ({ size, title, content }) => {
   const [isOpen, setOpen] = useState(false);
   const isHalf = size === 'half';
@@ -82,7 +82,6 @@ const Collapse = ({ size, title, content }) => {
           <WideDropDown as={isHalf && HalfDropDown}>
             {Array.isArray(content) ? (
               <ul>
-                {/* eslint-disable-next-line react/prop-types */}
                 {content.map((item, index) => (
                   <li key={`${item}-${index}`}>{item}</li>
                 ))}
@@ -95,6 +94,12 @@ const Collapse = ({ size, title, content }) => {
       </>
     </Wrapper>
   );
+};
+
+Collapse.propTypes = {
+  size: PropTypes.string,
+  title: PropTypes.string,
+  content: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
 };
 
 export default Collapse;

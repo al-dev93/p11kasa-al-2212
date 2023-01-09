@@ -3,6 +3,7 @@ import Prev from '../../assets/ARROW_BACK.svg';
 import Next from '../../assets/ARROW_FORWARD.svg';
 import styled from 'styled-components';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 /************************************************/
 //*  Composant SlideShow                        */
@@ -35,9 +36,8 @@ const Counter = styled.span`
 `;
 
 //** Composant */
-// eslint-disable-next-line react/prop-types
+
 const SlideShow = ({ images }) => {
-  // eslint-disable-next-line react/prop-types
   const numberOfImage = images.length;
   const [image, setImage] = useState(0);
   // affichage des flèches et du compteur si plus d'une image
@@ -67,6 +67,10 @@ const SlideShow = ({ images }) => {
       {slide}
     </Banner>
   );
+};
+
+SlideShow.propTypes = {
+  images: PropTypes.array,
 };
 
 export default SlideShow;

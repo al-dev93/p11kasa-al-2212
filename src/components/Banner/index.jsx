@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
+import PropTypes from 'prop-types';
 
 /************************************************/
 //*  Composant Banner                           */
@@ -48,11 +49,15 @@ const ContentBanner = styled.div`
 
 //** Composant */
 
-// eslint-disable-next-line react/prop-types
 const Banner = ({ children, image, slideshow }) => (
   <BackgroundBanner $image={image} $type={slideshow}>
     <ContentBanner>{children}</ContentBanner>
   </BackgroundBanner>
 );
 
+Banner.propTypes = {
+  image: PropTypes.string,
+  slideshow: PropTypes.bool,
+  children: PropTypes.any,
+};
 export default Banner;

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
+import PropTypes from 'prop-types';
 
 /************************************************/
 //*  Composant Card                             */
@@ -56,7 +57,6 @@ const CardTitle = styled.h2`
 
 //** Composant */
 
-// eslint-disable-next-line react/prop-types
 const Card = ({ flatId, image, title }) => (
   <Wrapper>
     <WrapperLink to={`/flat/${flatId}`}>
@@ -69,5 +69,11 @@ const Card = ({ flatId, image, title }) => (
     </WrapperLink>
   </Wrapper>
 );
+
+Card.propTypes = {
+  flatId: PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
+};
 
 export default Card;
