@@ -7,21 +7,18 @@ import colors from '../../utils/style/colors';
 
 //** Style du composant */
 
-const BackgroundBanner = styled.section.attrs((props) => ({
-  image: props.image,
-  type: props.type,
-}))`
+const BackgroundBanner = styled.section`
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  padding-top: ${(props) => (props.type ? 33.47 : 18)}%;
+  padding-top: ${(props) => (props.$type ? 33.47 : 18)}%;
   border-radius: 25px;
   line-height: 0px;
   // luminosité de l'image de fond
-  background: ${colors.lightBackground} url(${(props) => props.image});
+  background: ${colors.lightBackground} url(${(props) => props.$image});
   background-size: cover;
   background-position: center;
-  background-blend-mode: ${(props) => (props.type ? 'normal' : 'darken')};
+  background-blend-mode: ${(props) => (props.$type ? 'normal' : 'darken')};
   &::before {
     content: '';
     position: absolute;
@@ -53,7 +50,7 @@ const ContentBanner = styled.div`
 
 // eslint-disable-next-line react/prop-types
 const Banner = ({ children, image, slideshow }) => (
-  <BackgroundBanner image={image} type={slideshow}>
+  <BackgroundBanner $image={image} $type={slideshow}>
     <ContentBanner>{children}</ContentBanner>
   </BackgroundBanner>
 );
