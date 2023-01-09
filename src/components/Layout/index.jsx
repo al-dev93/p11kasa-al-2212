@@ -19,6 +19,7 @@ const Header = styled.header`
   padding: 0 100px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 const Logo = styled.img`
   width: ${(props) => (props.large ? 210.32 : 122)}px;
@@ -37,6 +38,7 @@ const ItemMenu = styled(NavLink)`
     text-decoration: underline;
   }
 `;
+// Style du corps principal
 const Main = styled.main`
   box-sizing: border-box;
   width: 100%;
@@ -53,6 +55,7 @@ const Footer = styled.footer`
 `;
 const Span = styled.span`
   margin-top: 28.56px;
+  height: 46px;
 `;
 
 //** Composant Layout, commun à toutes les pages */

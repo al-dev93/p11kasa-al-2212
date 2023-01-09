@@ -12,17 +12,19 @@ import ArrowDown from '../../assets/ARROW_DOWN.svg';
 
 // conteneur principal
 const Wrapper = styled.div`
+  /* position: relative; */
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 `;
-// bouton du collapse pour la page About
-const AboutButton = styled.button`
+// bouton du collapse pleine largeur
+const WideButton = styled.button`
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
-  flex: 1 47px;
+  flex: 0 47px;
   padding: 0 0 0 1.77%;
   font-size: 24px;
   border-radius: 5px;
@@ -35,9 +37,9 @@ const AboutButton = styled.button`
     top: calc(calc(100% - 61.5%) / 2);
   }
 `;
-// bouton du collaps pour la page Flat
-const FlatButton = styled(AboutButton)`
-  flex: 1 52px;
+// bouton du collapse demi-largeur
+const HalfButton = styled(WideButton)`
+  flex: 0 52px;
   padding-left: 3.44%;
   font-size: 18px;
   border-radius: 10px;
@@ -46,53 +48,49 @@ const FlatButton = styled(AboutButton)`
     right: 1.55%;
   }
 `;
-// conteneur du collapse pour la page About
-const AboutDropDown = styled.div`
-  position: relative;
-  top: -9px;
+// conteneur du collapse pleine largeur
+const WideDropDown = styled.div`
+  margin-top: -9px;
   padding: 36px 27px 19px 18px;
+  flex: 1;
+  font-size: 24px;
   background-color: ${colors.lightBackground};
   border-radius: 0 0 5px 5px;
   z-index: 1;
 `;
-// conteneur du collapse pour la page Flat
-const FlatDropDown = styled(AboutDropDown)`
+// conteneur du collapse demi-largeur
+const HalfDropDown = styled(WideDropDown)`
   padding: 40px 12px 27px 20px;
-  border-radius: 0 0 10px 10px;
-`;
-// texte contenu dans le collapse de la page About
-const DropDownText = styled.p`
-  margin: 0;
-  font-size: 24px;
-`;
-// liste contenue dans le collapse de la page Flat
-const DropDownList = styled.ul`
-  list-style: none;
   font-size: 18px;
+  border-radius: 0 0 10px 10px;
 `;
 
 //** Composant collapse pour les pages Flat et About */
 
 // eslint-disable-next-line react/prop-types
-const Collapse = ({ onPage, title, content }) => {
+const Collapse = ({ size, title, content }) => {
   const [isOpen, setOpen] = useState(false);
-  const onFlatPage = onPage === 'Flat';
+  const isHalf = size === 'half';
 
   return (
     <Wrapper>
       <>
-        <AboutButton as={onFlatPage && FlatButton} isOpen={isOpen} onClick={() => setOpen(!isOpen)}>
+        <WideButton as={isHalf && HalfButton} isOpen={isOpen} onClick={() => setOpen(!isOpen)}>
           {title}
-        </AboutButton>
+        </WideButton>
         {isOpen ? (
-          <AboutDropDown as={onFlatPage && FlatDropDown}>
-            <DropDownText as={onFlatPage && DropDownList}>
-              {Array.isArray(content)
-                ? // eslint-disable-next-line react/prop-types
-                  content.map((item, index) => <li key={`${item}-${index}`}>{item}</li>)
-                : content}
-            </DropDownText>
-          </AboutDropDown>
+          <WideDropDown as={isHalf && HalfDropDown}>
+            {Array.isArray(content) ? (
+              <ul>
+                {/* eslint-disable-next-line react/prop-types */}
+                {content.map((item, index) => (
+                  <li key={`${item}-${index}`}>{item}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>{content}</p>
+            )}
+          </WideDropDown>
         ) : null}
       </>
     </Wrapper>

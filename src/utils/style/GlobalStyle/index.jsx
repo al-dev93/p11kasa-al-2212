@@ -10,6 +10,9 @@ const GlobalStyle = createGlobalStyle`
         line-height: var(--LineHeight);
     }
     body {
+        width: 100vw;
+ //       min-height: 100vh;
+        margin: 0;
         font-family: 'Montserrat', sans-serif;
         font-style: normal;
         font-weight: 400;
@@ -38,12 +41,15 @@ const GlobalStyle = createGlobalStyle`
         z-index: 2;
     }
     ul {
+        margin: 0;
         padding: 0;
         list-style: none;
     }
     
     a {
+        box-sizing: border-box;
         color: ${colors.primary};
+        line-height: 0;
     }
 
     header,footer {

@@ -16,8 +16,8 @@ const Wrapper = styled.div`
 // conteneur des collapses
 const CollapseWrapper = styled.div`
   width: 82.5%;
-  min-height: 451px;
-  margin: 31px auto;
+  min-height: 499px;
+  margin: 31px auto 46px;
   display: flex;
   flex-direction: column;
   row-gap: 31px;
@@ -38,10 +38,10 @@ const About = () => (
   <Wrapper>
     <Banner image={`${AboutBannerImg}`} />
     <CollapseWrapper>
-      <Collapse onPage={'About'} title={'Fiabilité'} content={reliability} />
-      <Collapse onPage={'About'} title={'Respect'} content={respect} />
-      <Collapse onPage={'About'} title={'Service'} content={service} />
-      <Collapse onPage={'About'} title={'Sécurité'} content={security} />
+      <Collapse size={'wide'} title={'Fiabilité'} content={reliability} />
+      <Collapse size={'wide'} title={'Respect'} content={respect} />
+      <Collapse size={'wide'} title={'Service'} content={service} />
+      <Collapse size={'wide'} title={'Sécurité'} content={security} />
     </CollapseWrapper>
   </Wrapper>
 );

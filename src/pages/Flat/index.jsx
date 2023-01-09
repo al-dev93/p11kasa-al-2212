@@ -7,19 +7,26 @@ import marked from '../../assets/STAR_PRIMARY.svg';
 import unmarked from '../../assets/STAR_LIGHT.svg';
 import Collapse from '../../components/Collapse';
 
+/************************************************/
+//*  Page Flat                                  */
+/************************************************/
+
+//** Style de la page */
+
+// conteneur principal
 const Wrapper = styled.div`
   margin-top: 20px;
 `;
-
+// définition de la grille de placement
 const GridWrapper = styled.article`
-  margin-top: 30px;
-  margin-bottom: 253px;
+  margin: 30px 0 14px;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(3, auto);
   grid-auto-rows: minmax(25px, 77px);
   grid-gap: 20px 10px;
 `;
+// titre de la page
 const TitleWrapper = styled.div`
   grid-area: 1/1/2/9;
 `;
@@ -30,6 +37,7 @@ const Title = styled.h1`
 const Location = styled.h2`
   font-size: 18px;
 `;
+// nom et photo du propriétaire
 const Name = styled.p`
   position: relative;
   grid-column: 9 / 10;
@@ -51,6 +59,7 @@ const Photo = styled.img`
   border-radius: 100%;
   justify-self: self-end;
 `;
+// zone des tags
 const TagWrapper = styled.div`
   grid-area: 2 / 1 / 3 / 9;
   height: 25px;
@@ -70,6 +79,7 @@ const Tag = styled.span`
   font-weight: 500;
   border-radius: 10px;
 `;
+// notation en nombre d'étoiles
 const RatingWrapper = styled.div`
   position: relative;
   grid-area: 2 / 9 / 3 / 11;
@@ -77,16 +87,20 @@ const RatingWrapper = styled.div`
   top: -50%;
   line-height: 0;
 `;
-
+// container du collapse description
 const WrapperCollapseDescription = styled.div`
   grid-area: 3 / 1 / 4 / 6;
   width: 94.63%;
+  min-height: 281px;
 `;
+// container du collapse équipement
 const WrapperCollapseEquipment = styled.div`
   grid-area: 3 / 6 / 4 / 11;
   width: 94.63%;
-  justify-self: self-end;
+  min-height: 281px;
 `;
+
+//** composant page */
 
 const Flat = () => {
   const { flatId } = useParams();
@@ -126,10 +140,10 @@ const Flat = () => {
           )}
         </RatingWrapper>
         <WrapperCollapseDescription>
-          <Collapse onPage={'Flat'} title={'Description'} content={flat.description} />
+          <Collapse size={'half'} title={'Description'} content={flat.description} />
         </WrapperCollapseDescription>
         <WrapperCollapseEquipment>
-          <Collapse onPage={'Flat'} title={'Équipements'} content={flat.equipments} />
+          <Collapse size={'half'} title={'Équipements'} content={flat.equipments} />
         </WrapperCollapseEquipment>
       </GridWrapper>
     </Wrapper>

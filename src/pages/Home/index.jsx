@@ -30,7 +30,7 @@ const Gallery = styled.section`
   column-gap: 60px;
   row-gap: 50px;
   background-color: ${colors.lightBackground};
-  padding: 56px 50px 43px;
+  padding: 56px 50px;
   margin: 43px 0;
   border-radius: 25px;
 `;

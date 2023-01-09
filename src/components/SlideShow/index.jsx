@@ -11,9 +11,7 @@ import { useState } from 'react';
 //** Style du composant */
 
 // flèches de navigation
-const NavArrow = styled.img.attrs((props) => ({
-  scroll: props.scroll,
-}))`
+const NavArrow = styled.img`
   position: absolute;
   top: calc(calc(100% - 120px) / 2);
   left: ${(props) => props.scroll === 'prev' && 0};
@@ -59,7 +57,7 @@ const SlideShow = ({ images }) => {
           onClick={() => (image === numberOfImage - 1 ? setImage(0) : setImage(image + 1))}
         />
         <Counter>
-          {image + 1}/{numberOfImage}
+          {image + 1} / {numberOfImage}
         </Counter>
       </>
     ) : null;
