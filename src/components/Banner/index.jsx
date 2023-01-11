@@ -31,6 +31,19 @@ const BackgroundBanner = styled.section`
     background: ${colors.darkBackground};
     opacity: 0.3;
   }
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    border-radius: 18px;
+    padding-top: ${(props) => (props.$type ? 50 : props.$isTitle ? 25 : 35)}%;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    border-radius: 10px;
+    padding-top: ${(props) => (props.$type ? 76.2 : props.$isTitle ? 33 : 66.57)}%;
+    &::before {
+      border-radius: 10px;
+    }
+  }
 `;
 // pour placer le slogan de Home ou les controles du slideshow
 const ContentBanner = styled.div`
@@ -45,16 +58,25 @@ const ContentBanner = styled.div`
   color: ${colors.secondary};
   font-weight: 500;
   font-size: 48px;
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    left: ${(props) => (props.$type ? 0 : 12.5)}%;
+    justify-content: flex-start;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    left: ${(props) => (props.$type ? 0 : 16)}px;
+  }
 `;
 
 //** Composant */
 
 const Banner = ({ children, image, slideshow }) => (
-  <BackgroundBanner $image={image} $type={slideshow}>
-    <ContentBanner>{children}</ContentBanner>
+  <BackgroundBanner $image={image} $type={slideshow} $isTitle={children}>
+    <ContentBanner $type={slideshow}>{children}</ContentBanner>
   </BackgroundBanner>
 );
-
+// déclaration de type des props
 Banner.propTypes = {
   image: PropTypes.string,
   slideshow: PropTypes.bool,

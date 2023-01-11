@@ -17,6 +17,10 @@ const Wrapper = styled.div`
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%)
     ${colors.primary};
   border-radius: 10px;
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    max-width: 335px;
+  }
 `;
 // lien vers la page appartement
 const WrapperLink = styled(Link)`
@@ -53,6 +57,10 @@ const CardTitle = styled.h2`
   padding: 0 20px 20px;
   font-size: 18px;
   color: ${colors.secondary};
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    padding: 0 19.71px 15px;
+  }
 `;
 
 //** Composant */
@@ -69,7 +77,7 @@ const Card = ({ flatId, image, title }) => (
     </WrapperLink>
   </Wrapper>
 );
-
+// déclaration de type des props
 Card.propTypes = {
   flatId: PropTypes.string,
   image: PropTypes.string,

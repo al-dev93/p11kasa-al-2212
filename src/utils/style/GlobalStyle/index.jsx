@@ -1,23 +1,37 @@
 import { createGlobalStyle } from 'styled-components';
 import colors from '../colors';
 
-// Style global
+/************************************************/
+//*  Déclaration de style globale               */
+/************************************************/
+
+//** Style commun aux pages */
+
 const GlobalStyle = createGlobalStyle`
     :root {
-        --LineHeight: 142.6%; 
-    }
+        --LineHeight: 142.6%;
+    };
+
     * {
         line-height: var(--LineHeight);
-    }
+    };
+
     body {
         width: 100vw;
- //       min-height: 100vh;
         margin: 0;
         font-family: 'Montserrat', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 18px;
         color: ${colors.primary};
+        // affichage tablette
+        @media screen and (max-width: 1224px) {
+            font-size: 14px;
+        }
+        // affichage smartphone
+        @media screen and (max-width: 768px) {
+            font-size: 12px;
+        }
     };
 
     h1 {
@@ -56,6 +70,10 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-weight: 500;
         font-size: 24px;
+        // affichage smartphone
+        @media screen and (max-width: 768px) {
+            font-size: 12px;
+        }
     };
 
     footer {

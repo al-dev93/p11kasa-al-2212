@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
-import ArrowUp from '../../assets/ARROW_UP.svg';
-import ArrowDown from '../../assets/ARROW_DOWN.svg';
+import Arrow from '../../assets/ARROW_UP.svg';
 import PropTypes from 'prop-types';
 
 /************************************************/
@@ -13,7 +12,6 @@ import PropTypes from 'prop-types';
 
 // conteneur principal
 const Wrapper = styled.div`
-  /* position: relative; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -26,28 +24,80 @@ const WideButton = styled.button`
   align-items: center;
   width: 100%;
   flex: 0 47px;
-  padding: 0 0 0 1.77%;
+  padding: 0 0 0 18.08px;
   font-size: 24px;
   border-radius: 5px;
-  &::after {
-    position: absolute;
-    content: url(${({ isOpen }) => (isOpen ? ArrowDown : ArrowUp)});
-    height: 61.5%;
-    left: 94.23%;
-    right: 2.94%;
-    top: calc(calc(100% - 61.5%) / 2);
+  cursor: pointer;
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    flex: 0 40px;
+    font-size: 18px;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    flex: 0 30px;
+    padding-left: 11.51px;
+    font-size: 13px;
+  }
+`;
+const WideButtonArrow = styled.span`
+  position: absolute;
+  line-height: 0;
+  width: 23.86px;
+  height: 14.064px;
+  top: 16.86px;
+  right: 32.61px;
+  transform: rotate(${({ isOpen }) => isOpen && '180deg'});
+  @media screen and (max-width: 1224px) {
+    top: 12.968px;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    width: 15.2px;
+    height: 8.96px;
+    top: 10.76px;
+    right: 6.79px;
   }
 `;
 // bouton du collapse demi-largeur
 const HalfButton = styled(WideButton)`
   flex: 0 52px;
-  padding-left: 3.44%;
+  padding-left: 20px;
   font-size: 18px;
   border-radius: 10px;
-  &::after {
-    left: 92.96%;
-    right: 1.55%;
+  @media screen and (max-width: 1224px) {
+    flex: 0 36px;
+    font-size: 18px;
   }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    flex: 0 30px;
+    padding-left: 11.51px;
+    font-size: 13px;
+    border-radius: 5px;
+  }
+`;
+const HalfButtonArrow = styled(WideButtonArrow)`
+  width: 26.4px;
+  height: 15.56px;
+  top: 17.79px;
+  right: 11.8px;
+  @media screen and (max-width: 1224px) {
+    width: 23.86px;
+    height: 14.064px;
+    top: 10.97px;
+  }
+  //affichage smartphone
+  @media screen and (max-width: 768px) {
+    width: 15.2px;
+    height: 8.96px;
+    top: 10.74px;
+    right: 6.79px;
+  }
+`;
+const ArrowElement = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 // conteneur du collapse pleine largeur
 const WideDropDown = styled.div`
@@ -58,12 +108,22 @@ const WideDropDown = styled.div`
   background-color: ${colors.lightBackground};
   border-radius: 0 0 5px 5px;
   z-index: 1;
+  @media screen and (max-width: 768px) {
+    margin-top: -5.8px;
+    padding: 23px 6.9px 1.3px 11.5px;
+    font-size: 12px;
+  }
 `;
 // conteneur du collapse demi-largeur
 const HalfDropDown = styled(WideDropDown)`
   padding: 40px 12px 27px 20px;
   font-size: 18px;
   border-radius: 0 0 10px 10px;
+  @media screen and (max-width: 768px) {
+    margin-top: -5.77px;
+    padding: 23px 6.9px 1.3px 11.5px;
+    font-size: 12px;
+  }
 `;
 
 //** Composant collapse pour les pages Flat et About */
@@ -75,8 +135,11 @@ const Collapse = ({ size, title, content }) => {
   return (
     <Wrapper>
       <>
-        <WideButton as={isHalf && HalfButton} isOpen={isOpen} onClick={() => setOpen(!isOpen)}>
+        <WideButton as={isHalf && HalfButton} onClick={() => setOpen(!isOpen)}>
           {title}
+          <WideButtonArrow as={isHalf && HalfButtonArrow} isOpen={isOpen}>
+            <ArrowElement src={Arrow} alt='' />
+          </WideButtonArrow>
         </WideButton>
         {isOpen ? (
           <WideDropDown as={isHalf && HalfDropDown}>
@@ -95,7 +158,7 @@ const Collapse = ({ size, title, content }) => {
     </Wrapper>
   );
 };
-
+// déclaration de type des props
 Collapse.propTypes = {
   size: PropTypes.string,
   title: PropTypes.string,

@@ -16,6 +16,10 @@ import Collapse from '../../components/Collapse';
 // conteneur principal
 const Wrapper = styled.div`
   margin-top: 20px;
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    margin-top: 27px;
+  }
 `;
 // définition de la grille de placement
 const GridWrapper = styled.article`
@@ -25,17 +29,41 @@ const GridWrapper = styled.article`
   grid-template-rows: repeat(3, auto);
   grid-auto-rows: minmax(25px, 77px);
   grid-gap: 20px 10px;
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    grid-row-gap: 10px;
+    grid-template-rows: repeat(4, auto);
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    margin: 15px 0 64.5px;
+    grid-template-rows: repeat(5, auto);
+    grid-auto-rows: minmax(18px, 73px);
+    grid-gap: 10px 10px;
+  }
 `;
 // titre de la page
 const TitleWrapper = styled.div`
-  grid-area: 1/1/2/9;
+  grid-area: 1 / 1 / 2 / 9;
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    grid-area: 1 / 1 / 2 / 11;
+  }
 `;
 const Title = styled.h1`
   font-size: 36px;
   font-weight: 500;
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 const Location = styled.h2`
   font-size: 18px;
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 // nom et photo du propriétaire
 const Name = styled.p`
@@ -44,9 +72,18 @@ const Name = styled.p`
   grid-row: 1 / 2;
   right: -33%;
   text-align: right;
-  font-size: 18px;
   font-weight: 500;
   align-self: flex-start;
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    right: -20px;
+    align-self: center;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    position: static;
+    grid-row: 3 / 4;
+  }
 `;
 const Photo = styled.img`
   position: relative;
@@ -58,13 +95,37 @@ const Photo = styled.img`
   top: -7.79%;
   border-radius: 100%;
   justify-self: self-end;
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    margin-right: 0px;
+    top: 0px;
+    width: 48px;
+    align-self: center;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    position: static;
+    grid-row: 3 / 4;
+    width: 32px;
+    margin: 0;
+  }
 `;
 // zone des tags
 const TagWrapper = styled.div`
   grid-area: 2 / 1 / 3 / 9;
-  height: 25px;
   display: flex;
   column-gap: 10px;
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    grid-area: 3 / 1 / 4 / 11;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    grid-area: 2 / 1 / 3 / 11;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
 `;
 const Tag = styled.span`
   box-sizing: border-box;
@@ -72,12 +133,20 @@ const Tag = styled.span`
   justify-content: center;
   align-items: center;
   min-width: 115px;
+  height: 25px;
   padding: 0 20px;
   background-color: ${colors.primary};
   color: ${colors.secondary};
   font-size: 14px;
   font-weight: 500;
   border-radius: 10px;
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    min-width: 84px;
+    height: 18px;
+    padding: 0 14px;
+    font-size: 10px;
+  }
 `;
 // notation en nombre d'étoiles
 const RatingWrapper = styled.div`
@@ -86,18 +155,63 @@ const RatingWrapper = styled.div`
   justify-self: self-end;
   top: -50%;
   line-height: 0;
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    top: 0;
+    grid-area: 2 / 1 / 3 / 11;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    position: static;
+    grid-area: 3 / 1 / 4 / 9;
+    justify-self: flex-start;
+  }
+`;
+const Star = styled.img`
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    width: 32px;
+    height: 100%;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    width: 18px;
+    height: 100%;
+  }
 `;
 // container du collapse description
 const WrapperCollapseDescription = styled.div`
   grid-area: 3 / 1 / 4 / 6;
   width: 94.63%;
   min-height: 281px;
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    margin-top: 5px;
+    grid-area: 4 / 1 / 5 / 6;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    grid-area: 4 / 1 / 5 / 11;
+    width: 100%;
+    min-height: auto;
+  }
 `;
 // container du collapse équipement
 const WrapperCollapseEquipment = styled.div`
   grid-area: 3 / 6 / 4 / 11;
   width: 94.63%;
   min-height: 281px;
+  // affichage tablette
+  @media screen and (max-width: 1224px) {
+    margin-top: 5px;
+    grid-area: 4 / 6 / 5 / 11;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    grid-area: 5 / 1 / 6 / 11;
+    width: 100%;
+    min-height: auto;
+  }
 `;
 
 //** composant page */
@@ -133,9 +247,9 @@ const Flat = () => {
         <RatingWrapper>
           {scoringScale.map((score, index) =>
             flat.rating >= score ? (
-              <img key={`${marked}-${index}`} src={marked} alt='' />
+              <Star key={`${marked}-${index}`} src={marked} alt='' />
             ) : (
-              <img key={`${unmarked}-${index}`} src={unmarked} alt='' />
+              <Star key={`${unmarked}-${index}`} src={unmarked} alt='' />
             ),
           )}
         </RatingWrapper>

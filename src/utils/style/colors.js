@@ -1,3 +1,9 @@
+/************************************************/
+//*  Palette de couleurs                        */
+/************************************************/
+
+//** Constantes de couleur */
+
 const colors = {
   primary: '#FF6060',
   secondary: '#FFFFFF',

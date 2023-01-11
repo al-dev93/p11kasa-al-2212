@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Banner from '../../components/Banner';
 import Collapse from '../../components/Collapse';
-import AboutBannerImg from '../../assets/images/IMG_ABOUT_PAGE.png';
+import BannerImage from '../../assets/images/IMG_ABOUT_PAGE.png';
 
 /************************************************/
 //*  Page About                                 */
@@ -12,15 +12,26 @@ import AboutBannerImg from '../../assets/images/IMG_ABOUT_PAGE.png';
 // conteneur principal
 const Wrapper = styled.div`
   margin-top: 44px;
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    margin-top: 17px;
+  }
 `;
 // conteneur des collapses
 const CollapseWrapper = styled.div`
   width: 82.5%;
-  min-height: 499px;
-  margin: 31px auto 46px;
+  min-height: 31.188rem;
+  margin: 31px auto;
   display: flex;
   flex-direction: column;
   row-gap: 31px;
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin: 19px 0;
+    row-gap: 20px;
+    min-height: 20.563rem;
+  }
 `;
 // contenu texte des collapse
 const reliability =
@@ -36,7 +47,7 @@ const security =
 
 const About = () => (
   <Wrapper>
-    <Banner image={`${AboutBannerImg}`} />
+    <Banner image={`${BannerImage}`} />
     <CollapseWrapper>
       <Collapse size={'wide'} title={'Fiabilité'} content={reliability} />
       <Collapse size={'wide'} title={'Respect'} content={respect} />

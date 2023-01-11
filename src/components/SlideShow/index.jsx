@@ -14,11 +14,23 @@ import PropTypes from 'prop-types';
 // flèches de navigation
 const NavArrow = styled.img`
   position: absolute;
-  top: calc(calc(100% - 120px) / 2);
-  left: ${(props) => props.scroll === 'prev' && 0};
-  right: ${(props) => props.scroll === 'next' && 0};
+  top: 37.76%;
+  left: ${(props) => props.scroll === 'prev' && 23.36}px;
+  right: ${(props) => props.scroll === 'next' && 23.36}px;
   cursor: pointer;
   z-index: 100;
+  @media screen and (max-width: 1224px) {
+    width: 36px;
+    height: auto;
+  }
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    top: 46.31%;
+    width: 11.67px;
+    height: auto;
+    left: ${(props) => props.scroll === 'prev' && 5.84}px;
+    right: ${(props) => props.scroll === 'next' && 5.84}px;
+  }
 `;
 // compteur d'images
 const Counter = styled.span`
@@ -33,6 +45,20 @@ const Counter = styled.span`
   bottom: 6.01%;
   border-radius: 5px;
   z-index: 10;
+  // affichage smartphone
+  @media screen and (max-width: 768px) {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+  }
 `;
 
 //** Composant */
@@ -68,7 +94,7 @@ const SlideShow = ({ images }) => {
     </Banner>
   );
 };
-
+// déclaration de type des props
 SlideShow.propTypes = {
   images: PropTypes.array,
 };
