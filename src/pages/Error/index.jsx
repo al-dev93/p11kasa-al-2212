@@ -1,4 +1,4 @@
-import { Link, useRouteError } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 /************************************************/
@@ -64,8 +64,6 @@ const BackHomeLink = styled(Link)`
 //** Composant page */
 
 const Error = () => {
-  const error = useRouteError();
-  console.error(error);
   return (
     <Wrapper>
       <ErrorNumber>404</ErrorNumber>

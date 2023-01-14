@@ -1,0 +1,91 @@
+/************************************************/
+/**  style globale commun à toutes les pages    */
+/************************************************/
+
+
+/* déclaration des variables */
+:root {
+    --LineHeight: 142.6%;
+    /* palette de couleurs */
+    --PrimaryColor: #FF6060;
+    --SecondaryColor: #FFFFFF;
+    --LightBackgroundColor: #F6F6F6;
+    --GreyBackgroundColor: #C4C4C4;
+    --DarkBackgroundColor: #000000;
+}
+
+* {
+    line-height: var(--LineHeight);
+}
+
+body {
+    width: 100vw;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--PrimaryColor);
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+    font-weight: 500;
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    font-weight: 500;
+    background-color: var(--PrimaryColor);
+    color: var(--SecondaryColor);
+    border: none;
+    z-index: 2;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+    
+a {
+    box-sizing: border-box;
+    color: var(--PrimaryColor);
+    line-height: 0;
+}
+
+header,footer {
+    box-sizing: border-box;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+footer {
+    background-color: var(--DarkBackgroundColor);
+    color: var(--SecondaryColor);
+}
+/* ******************************************** */
+/* affichage tablette */
+@media screen and (max-width: 1224px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* affichage smartphone */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
