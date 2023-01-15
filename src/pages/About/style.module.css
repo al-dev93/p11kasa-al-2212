@@ -1,0 +1,32 @@
+/*----------------------------------------------*/
+/**  Styles de la page About                    */
+/*----------------------------------------------*/
+
+/* conteneur principal */
+.pageWrapper {
+    margin-top: 44px;
+}
+/* conteneur des collapses */
+.collapseWrapper {
+    width: 82.5%;
+    min-height: 31.188rem;
+    margin: 31px auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 31px;  
+}
+
+/** affichage smartphone ************************/
+@media screen and (max-width: 768px) {
+    /* conteneur principal */
+    .pageWrapper {
+        margin-top: 17px;
+    }
+    /* conteneur des collapses */
+    .collapseWrapper {
+        width: 100%;
+        margin: 19px 0;
+        row-gap: 20px;
+        min-height: 20.563rem;    
+    }
+}

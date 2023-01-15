@@ -1,0 +1,203 @@
+/*----------------------------------------------*/
+/**  Styles de la page Flat                     */
+/*----------------------------------------------*/
+
+/* conteneur principal */
+.pageWrapper {
+    margin-top: 20px;
+}
+/* définition de la grille de placement */
+.gridWrapper {
+    margin: 30px 0 14px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-auto-rows: minmax(25px, 77px);
+    grid-gap: 20px 10px;  
+}
+/* titre de la page */
+.titleWrapper {
+    grid-area: 1 / 1 / 2 / 9;
+}
+.title {
+    font-size: 36px;
+    font-weight: 500;  
+}
+.location {
+    font-size: 18px;
+}
+/* nom et photo du propriétaire */
+.name {
+    position: relative;
+    grid-column: 9 / 10;
+    grid-row: 1 / 2;
+    right: -33%;
+    text-align: right;
+    font-weight: 500;
+    align-self: flex-start;  
+}
+.photo {
+    position: relative;
+    grid-column: 10 / 11;
+    grid-row: 1 / 2;
+    width: 64px;
+    height: auto;
+    margin-right: 3px;
+    top: -7.79%;
+    border-radius: 100%;
+    justify-self: self-end;  
+}
+/* zone des tags */
+.tagWrapper {
+    grid-area: 2 / 1 / 3 / 9;
+    display: flex;
+    column-gap: 10px;  
+}
+.tag {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 115px;
+    height: 25px;
+    padding: 0 20px;
+    background-color: var(--PrimaryColor);
+    color: var(--SecondaryColor);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;  
+}
+/* notation en nombre d'étoiles */
+.ratingWrapper {
+    position: relative;
+    grid-area: 2 / 9 / 3 / 11;
+    justify-self: self-end;
+    top: -50%;
+    line-height: 0;  
+}
+/* container du collapse description */
+.collapseDescriptionWrapper {
+    grid-area: 3 / 1 / 4 / 6;
+    width: 94.63%;
+    min-height: 281px;
+}
+/* container du collapse équipement */
+.collapseEquipmentWrapper {
+    grid-area: 3 / 6 / 4 / 11;
+    width: 94.63%;
+    min-height: 281px;
+}
+
+/** affichage tablette **************************/
+@media screen and (max-width: 1224px) {
+    /* définition de la grille de placement */
+    .gridWrapper {
+        grid-row-gap: 10px;
+        grid-template-rows: repeat(4, auto);    
+    }
+    /* nom et photo du propriétaire */
+    .name {
+        right: -20px;
+        align-self: center;    
+    }
+    .photo {
+        margin-right: 0px;
+        top: 0px;
+        width: 48px;
+        align-self: center;    
+    }
+    /* zone des tags */
+    .tagWrapper {
+        grid-area: 3 / 1 / 4 / 11;
+    }
+    /* notation en nombre d'étoiles */
+    .ratingWrapper {
+        top: 0;
+        grid-area: 2 / 1 / 3 / 11;    
+    }
+    .star {
+        width: 32px;
+        height: 100%;    
+    }
+    /* container du collapse description */
+    .collapseDescriptionWrapper {
+        margin-top: 5px;
+        grid-area: 4 / 1 / 5 / 6;    
+    }
+    /* container du collapse équipement */
+    .collapseEquipmentWrapper {
+        margin-top: 5px;
+        grid-area: 4 / 6 / 5 / 11;    
+    }
+}
+
+/** affichage smartphone ************************/
+@media screen and (max-width: 768px) {
+    /* conteneur principal */
+    .pageWrapper {
+        margin-top: 27px;
+    }
+    /* définition de la grille de placement */
+    .gridWrapper {
+        margin: 15px 0 64.5px;
+        grid-template-rows: repeat(5, auto);
+        grid-auto-rows: minmax(18px, 73px);
+        grid-gap: 10px 10px;    
+    }
+    /* titre de la page */
+    .titleWrapper {
+        grid-area: 1 / 1 / 2 / 11;
+    }
+    .title {
+        font-size: 18px;
+    }
+    .location {
+        font-size: 14px;
+    }
+    /* nom et photo du propriétaire */
+    .name {
+        position: static;
+        grid-row: 3 / 4;    
+    }
+    .photo {
+        position: static;
+        grid-row: 3 / 4;
+        width: 32px;
+        margin: 0;    
+    }
+    /* zone des tags */
+    .tagWrapper {
+        grid-area: 2 / 1 / 3 / 11;
+        margin-bottom: 6px;
+        flex-wrap: wrap;
+        row-gap: 6px;    
+    }
+    .tag {
+        min-width: 84px;
+        height: 18px;
+        padding: 0 14px;
+        font-size: 10px;    
+    }
+    /* notation en nombre d'étoiles */
+    .ratingWrapper {
+        position: static;
+        grid-area: 3 / 1 / 4 / 9;
+        justify-self: flex-start;    
+    }
+    .star {
+        width: 18px;
+        height: 100%;    
+    }
+    /* container du collapse description */
+    .collapseDescriptionWrapper {
+        grid-area: 4 / 1 / 5 / 11;
+        width: 100%;
+        min-height: auto;    
+    }
+    /* container du collapse équipement */
+    .collapseEquipmentWrapper {
+        grid-area: 5 / 1 / 6 / 11;
+        width: 100%;
+        min-height: auto;    
+    }
+}
