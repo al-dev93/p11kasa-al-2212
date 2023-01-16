@@ -83,9 +83,9 @@
 }
 /* container du collapse équipement */
 .collapseEquipmentWrapper {
+    composes: collapseDescriptionWrapper;
     grid-area: 3 / 6 / 4 / 11;
-    width: 94.63%;
-    min-height: 281px;
+    justify-self: end;
 }
 
 /** affichage tablette **************************/
@@ -126,7 +126,6 @@
     }
     /* container du collapse équipement */
     .collapseEquipmentWrapper {
-        margin-top: 5px;
         grid-area: 4 / 6 / 5 / 11;    
     }
 }
@@ -197,7 +196,5 @@
     /* container du collapse équipement */
     .collapseEquipmentWrapper {
         grid-area: 5 / 1 / 6 / 11;
-        width: 100%;
-        min-height: auto;    
     }
 }
