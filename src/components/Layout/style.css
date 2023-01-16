@@ -1,0 +1,106 @@
+/*----------------------------------------------*/
+/**  Styles du composant Layout                 */
+/*----------------------------------------------*/
+
+/* Conteneur de la page */
+.layoutWrapper {
+    margin: 0 auto;
+    padding-top: 40px;  
+}
+/* header */
+header {
+  padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* logo du header*/
+.logo {
+  width: 210.32px;
+  height: 100%;
+}
+/* navigation, menu */
+.menu {
+  width: 309px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 57px;
+}
+.menuItem {
+  text-decoration: none;
+}
+.menuItem.active {
+  text-decoration: underline;
+}
+/* corps principal */
+main {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 100px;
+}
+/* footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 66px 0 29px;
+}
+/* logo du footer */
+footer .logo {
+  width: 122px;
+}
+footer span {
+  margin-top: 28.56px;
+  height: 46px;
+  display: flex;
+  align-items: flex-end;
+}
+
+/** affichage tablette **************************/
+@media screen and (max-width: 1224px) {
+    /* Conteneur de la page */
+    .layoutWrapper {
+        padding-top: 20px;
+    }
+    /* header */
+    header {
+      padding: 0 20px;
+      width: 100%;  
+    }
+    .menuItem {
+      font-size: 16px;
+    }
+}
+
+/** affichage smartphone ************************/
+@media screen and (max-width: 768px) {
+  /* logo */
+  .logo {    
+    width: 145px;
+  }
+  /* navigation, menu */
+  .menu {
+    width: 100%;
+    max-width: 140px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .menuItem {
+    font-size: 12px;
+  }
+  main {
+    width: 100%;
+    padding: 0 20px;
+  }
+  footer {
+    padding: 62px 0;
+  }
+  footer .logo {
+    width: 122px;
+  }
+  footer span {
+    margin-top: 0;
+  }
+}

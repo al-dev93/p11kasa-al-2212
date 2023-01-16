@@ -2,7 +2,7 @@
 /**  Styles de la page About                    */
 /*----------------------------------------------*/
 
-/* conteneur principal */
+/* conteneur du corps de page */
 .pageWrapper {
     margin-top: 44px;
 }
@@ -18,7 +18,7 @@
 
 /** affichage smartphone ************************/
 @media screen and (max-width: 768px) {
-    /* conteneur principal */
+    /* conteneur du corps de page */
     .pageWrapper {
         margin-top: 17px;
     }

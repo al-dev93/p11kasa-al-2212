@@ -1,10 +1,10 @@
 import styles from './style.module.css';
 import Banner from '../../components/Banner';
 import Collapse from '../../components/Collapse';
-import BannerImage from '../../assets/images/IMG_ABOUT_PAGE.png';
+// import BannerImage from '../../assets/images/IMG_ABOUT_PAGE.png';
 
 /************************************************/
-//*  Page About                                 */
+//*  corps de page About                        */
 /************************************************/
 
 // contenu texte des collapse
@@ -19,7 +19,7 @@ const security =
 
 const About = () => (
   <div className={styles.pageWrapper}>
-    <Banner image={`${BannerImage}`} />
+    <Banner />
     <div className={styles.collapseWrapper}>
       <Collapse size={'wide'} title={'Fiabilité'} content={reliability} />
       <Collapse size={'wide'} title={'Respect'} content={respect} />

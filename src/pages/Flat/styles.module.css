@@ -2,7 +2,7 @@
 /**  Styles de la page Flat                     */
 /*----------------------------------------------*/
 
-/* conteneur principal */
+/* conteneur du corps de page */
 .pageWrapper {
     margin-top: 20px;
 }
@@ -133,7 +133,7 @@
 
 /** affichage smartphone ************************/
 @media screen and (max-width: 768px) {
-    /* conteneur principal */
+    /* conteneur du corps de page */
     .pageWrapper {
         margin-top: 27px;
     }

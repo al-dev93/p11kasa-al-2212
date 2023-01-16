@@ -1,0 +1,99 @@
+/*----------------------------------------------*/
+/**  Styles du composant SlideShow              */
+/*----------------------------------------------*/
+
+/* images du slideshow */
+.imageWrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+/* flèches de navigation */
+.navArrow {
+    position: absolute;
+    top: 37.76%;
+    cursor: pointer;
+    z-index: 100;
+}
+.navArrowLeft {
+    composes: navArrow;
+    left: 23.36px;
+}
+.navArrowRight {
+    composes: navArrow;
+    right: 23.36px;
+}
+/* compteur d'images */
+.imageCounter {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: var(--SecondaryColor);
+    width: 5%;
+    right: calc(calc(100% - 5%) / 2);
+    top: 86.19%;
+    bottom: 6.01%;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+/** affichage tablette **************************/
+@media screen and (max-width: 1224px) {
+    /* images du slideshow */
+    .image {
+        border-radius: 18px;
+    }
+    /* flèches de navigation */
+    .navArrow {
+        width: 36px;
+        height: auto;    
+    }
+    /* compteur d'images */
+    .imageCounter {
+        font-size: 14px;
+    }
+}
+
+/** affichage smartphone ************************/
+@media screen and (max-width: 768px) {
+    /* images du slideshow */
+    .image {
+        border-radius: 10px;
+    }    
+    /* flèches de navigation */
+    .navArrow {
+        top: 46.31%;
+        width: 11.67px;
+        height: auto;    
+    }
+    .navArrowLeft {
+        left: 5.84px;
+    }
+    .navArrowRight {
+        right: 5.84px;
+    }
+    /* compteur d'images */
+    .imageCounter {
+        border: 0 !important;
+        clip: rect(1px, 1px, 1px, 1px) !important;
+        -webkit-clip-path: inset(50%) !important;
+        clip-path: inset(50%) !important;
+        height: 1px !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        position: absolute !important;
+        width: 1px !important;
+        white-space: nowrap !important;    
+    }
+}

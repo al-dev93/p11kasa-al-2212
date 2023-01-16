@@ -1,0 +1,132 @@
+/*----------------------------------------------*/
+/**  Styles du composant Collapse               */
+/*----------------------------------------------*/
+
+/* conteneur du collapse */
+.collapseWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;  
+}
+/* bouton du collapse */
+.wideCollapseButton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex: 0 47px;
+    padding: 0 0 0 18.08px;
+    font-size: 24px;
+    border-radius: 5px;
+    cursor: pointer;  
+}
+.halfCollapseButton {
+    composes: wideCollapseButton;
+    flex: 0 52px;
+    padding-left: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+/* indicateur d'ouverture */
+.wideCollapseArrowWrapper {
+    position: absolute;
+    line-height: 0;
+    width: 23.86px;
+    height: 14.064px;
+    top: 16.86px;
+    right: 32.61px;
+}
+.halfCollapseArrowWrapper {
+    composes: wideCollapseArrowWrapper;
+    width: 26.4px;
+    height: 15.56px;
+    top: 17.79px;
+    right: 11.8px;  
+}
+.openArrow {
+    width: 100%;
+    height: 100%;  
+}
+.closeArrow {
+    composes: openArrow;
+    transform: rotate(180deg);
+}
+/* dropdown */
+.wideCollapseDropdown {
+    margin-top: -9px;
+    padding: 36px 27px 19px 18px;
+    flex: 1;
+    font-size: 24px;
+    background-color: var(--LightBackgroundColor);
+    border-radius: 0 0 5px 5px;
+    z-index: 1;  
+}
+.halfCollapseDropdown {
+    composes: wideCollapseDropdown;
+    padding: 40px 12px 27px 20px;
+    font-size: 18px;
+    border-radius: 0 0 10px 10px;  
+}
+
+/** affichage tablette **************************/
+@media screen and (max-width: 1224px) {
+    /* bouton du collapse */
+    .wideCollapseButton {
+        flex: 0 40px;
+        font-size: 18px;    
+    }
+    .halfCollapseButton {
+        flex: 0 36px;
+        font-size: 18px;    
+    }
+    /* indicateur d'ouverture */
+    .wideCollapseArrowWrapper {
+        top: 12.968px;
+    }
+    .halfCollapseArrowWrapper {
+        width: 23.86px;
+        height: 14.064px;
+        top: 10.97px;    
+    }
+}
+
+/** affichage smartphone ************************/
+@media screen and (max-width: 768px) {
+    /* bouton du collapse */
+    .wideCollapseButton {
+        flex: 0 30px;
+        padding-left: 11.51px;
+        font-size: 13px;    
+    }
+    .halfCollapseButton {
+        flex: 0 30px;
+        padding-left: 11.51px;
+        font-size: 13px;
+        border-radius: 5px;    
+    }
+    /* indicateur d'ouverture */
+    .wideCollapseArrowWrapper {
+        width: 15.2px;
+        height: 8.96px;
+        top: 10.76px;
+        right: 6.79px;    
+    }
+    .halfCollapseArrowWrapper {
+        width: 15.2px;
+        height: 8.96px;
+        top: 10.74px;
+        right: 6.79px;    
+    }
+    /* dropdown */
+    .wideCollapseDropdown {
+        margin-top: -5.8px;
+        padding: 23px 6.9px 1.3px 11.5px;
+        font-size: 12px;    
+    }
+    .halfCollapseDropdown {
+        margin-top: -5.77px;
+        padding: 23px 6.9px 1.3px 11.5px;
+        font-size: 12px;    
+    }
+}

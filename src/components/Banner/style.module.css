@@ -1,0 +1,107 @@
+/*----------------------------------------------*/
+/**  Styles du composant Banner                 */
+/*----------------------------------------------*/
+
+/* bannière de la page About */
+.bannerWrapper {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding-top: 18%;
+    border-radius: 25px;
+    line-height: 0px;
+    background: var(--LightBackgroundColor) url("../../assets/images/IMG_ABOUT_PAGE.png");
+    background-size: cover;
+    background-position: center;
+}
+/* assombrissement de la bannière */
+.bannerWrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background: var(--DarkBackgroundColor);
+    opacity: 0.3;
+    mix-blend-mode: darken;
+}
+/* bannière de la page Home */
+.bannerWrapperTitle {
+    composes: bannerWrapper;
+    background-image: url("../../assets/images/IMG_HOME_PAGE.png");
+}
+/* bannière utilisée avec SlideShow */
+.bannerWrapperSlideShow {
+    composes: bannerWrapper;
+    padding-top: 33.47%;
+    background-image: none;
+}
+/* contenu de la bannière Home */
+.bannerContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--SecondaryColor);
+    font-weight: 500;
+    font-size: 48px;      
+}
+
+/** affichage tablette **************************/
+@media screen and (max-width: 1224px) {
+    /* bannière de la page About */
+    .bannerWrapper {
+        border-radius: 18px;
+        padding-top: 35%;    
+    }
+    .bannerWrapper::before {
+        border-radius: 18px;
+    }
+    /* bannière de la page Home */
+    .bannerWrapperTitle {
+        composes: bannerWrapper;
+        padding-top: 25%;
+    }
+    /* bannière utilisée avec SlideShow */
+    .bannerWrapperSlideShow {
+        composes: bannerWrapper;
+        padding-top: 50%;
+    }
+    /* contenu de la bannière Home*/
+    .bannerContent {
+        left: 12.5%;
+        justify-content: flex-start;
+    }
+}
+
+/** affichage smartphone ************************/
+@media screen and (max-width: 768px) {
+    /* bannière de la page About */
+    .bannerWrapper {
+        border-radius: 10px;
+        padding-top: 66.57%;
+    }
+    .bannerWrapper::before {
+        border-radius: 10px;
+    }
+    /* bannière de la page Home */
+    .bannerWrapperTitle {
+        composes: bannerWrapper;
+        padding-top: 33%;
+    }
+    /* bannière utilisée avec SlideShow */
+    .bannerWrapperSlideShow {
+        composes: bannerWrapper;
+        padding-top: 76.2%;
+    }
+    /* contenu de la bannière Home */
+    .bannerContent {
+        left: 16px;
+    }
+}

@@ -2,7 +2,7 @@
 /**  Styles de la page Error                    */
 /*----------------------------------------------*/
 
-/* conteneur principal */
+/* conteneur du corps de page */
 .pageWrapper {
     margin: 169px 0 0 22px;
     display: flex;
@@ -19,7 +19,7 @@
 .errorMessage {
     margin-bottom: 182px;
     font-size: 36px;
-    font-weight: 500;  
+    font-weight: 500; 
 }
 /* lien vers la page Home */
 .backHomeLink {
@@ -41,7 +41,7 @@
 
 /** affichage smartphone ************************/
 @media screen and (max-width: 768px) {
-    /* conteneur principal */
+    /* conteneur du corps de page */
     .pageWrapper {
         margin: 195px auto 0;
     }
@@ -60,6 +60,6 @@
     /* lien vers la page Home */
     .backHomeLink {
         margin: 0 0 235px 0;
-        font-size: 14px;    
+        font-size: 14px;
     }
 }

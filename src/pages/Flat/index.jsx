@@ -1,13 +1,13 @@
+import { Navigate, useParams } from 'react-router-dom';
 import styles from './styles.module.css';
 import SlideShow from '../../components/SlideShow';
+import Collapse from '../../components/Collapse';
 import flats from '../../data/logements.json';
-import { Navigate, useParams } from 'react-router-dom';
 import marked from '../../assets/STAR_PRIMARY.svg';
 import unmarked from '../../assets/STAR_LIGHT.svg';
-import Collapse from '../../components/Collapse';
 
 /************************************************/
-//*  Page Flat                                  */
+//*  corps de page Flat                         */
 /************************************************/
 
 const Flat = () => {
