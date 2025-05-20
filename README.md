@@ -1,35 +1,43 @@
-# Développez une application Web avec React et React Router
+# Kasa project
 
-Onzième projet de la formation développeur d'application JavaScript React d'OpenClassrooms
+The Kasa web application is aimed at individuals wishing to rent out their apartments.
 
-## Contexte du projet
+Developed with React, it offers advanced components such as :
 
-Kasa vous recrute en tant que développeur Front-end en freelance pour développer leur nouvelle plateforme web. Kasa est dans le métier de la location d’appartements entre particuliers depuis près de 10 ans maintenant. Avec plus de 500 annonces postées chaque jour Kasa fait partie des leaders de la location d’appartements entre particuliers en France.
+- cards to display a preview of rentals,
+- collapses to expand or hide information,
+- a slider to scroll through apartment photos.
 
-## Le projet
+The web application has a home page, an apartment page with dynamically generated content, an about page, and an error page.
 
-Le site de Kasa a été codé il y a maintenant plus de 10 ans en ASP.NET avec un code legacy important. Laura, la CTO, a donc lancé une refonte totale pour passer à une stack complète en JavaScript avec NodeJS côté Back-end, et React côté Front-end. Kasa en a également profité pour commander de nouvelles maquettes auprès de son designer habituel.
+Navigation is handled by React Router.
 
-* **Objectif :** Démarrer le projet React et développer l’ensemble de l’application, les composants React, les routes React Router, en suivant les maquettes Figma (responsives !) et toutes les infos communiquées. Et ce avec un code de qualité !
+**📱 Responsive design**
 
-* **Back-end / data :** Le Back-End n'est pas terminé. Il faut utiliser le fichier JSON contenant une extraction des 20 dernières annonces de logements pour développer le Front qui correspond.
+The application is fully responsive: it automatically adapts to all screen types (computers, tablets, smartphones) to provide an optimal user experience, regardless of the device used.
 
-* **Design :** Les maquettes réalisée sur Figma pour le design d’interface sont fournies.
+## Start the project
 
-### Contraintes techniques
+### install dependencies
 
-Utiliser les coding guidelines de Kasa pour construire l'application.
+To install the project dependencies, use the command :
 
-### Contraintes fonctionnelles
+```bash
+npm install
+```
 
-Quelques précisions sur les fonctionnalités du site :
+### Compile the project
 
-* Pour le défilement des photos dans la galerie (composant Gallery) :
-  * Si l'utilisateur se trouve à la première image et qu'il clique sur "image précédente", la galerie affiche la dernière image.
-  * Inversement, quand l'image affichée est la dernière de la galerie, si l'utilisateur clique sur "image suivante", la galerie affiche la première image.
-  * S'il n'y a qu'une seule image, les boutons "suivant" et "précédent" n'apparaissent pas.
-  * La galerie doit toujours rester de la même hauteur, celle indiquée sur la maquette Figma. Les images seront donc coupées et centrées dans le cadre de l’image.
-* Collapse : Par défaut, les Collapse sont fermés à l'initialisation de la page.
-* Si le Collapse est ouvert, le clic de l'utilisateur permet de le fermer.
-  * Inversement, si le Collapse est fermé, un clic permet de l'ouvrir.
-  
+To compile the project and start the development server, run the command :
+
+```bash
+npm run start
+```
+
+### Build the project
+
+To build the project, use the command :
+
+```bash
+npm run build
+```
